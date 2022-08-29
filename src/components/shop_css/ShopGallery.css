@@ -1,12 +1,9 @@
 .shopGallery{
-    border: 2px solid red;
-    width: 74%;
+    /* border: 2px solid brown; */
     height: fit-content;
-    display: inline-block;
-    position: absolute;
-}
-.cardParent{
+    width: 75%;
     display: flex;
     justify-content: space-around;
+    align-items: flex-end;
     flex-wrap: wrap;
 }

@@ -1,4 +1,12 @@
 
+.shopPage .Navbar-display{
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    background-color:white;
+    border-bottom: 1px solid lightgrey;
+}
+
 .shopPage .footer{
-    position: relative !important;
+    z-index: 1000;
 }
