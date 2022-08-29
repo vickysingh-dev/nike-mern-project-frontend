@@ -1,0 +1,87 @@
+.signUpPageInput{
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.signUpPageInput .div1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hello{
+    color: black;
+    font-weight: 500;
+    margin: 10px 0;
+}
+.signUpPageInput .b1{
+    font-size: 1.2em;
+    width: 200px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    padding: 5px;
+    margin: 10px 0 5px 0;
+}
+.signUpPageInput .b2{
+    font-size: 1.2em;
+    width: 200px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    padding: 5px;
+    margin: 10px 0 5px 0;
+}
+.signUpPageInput .b3{
+    font-size: 1.2em;
+    width: 200px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    padding: 5px;
+    margin: 10px 0 5px 0;
+}
+.signUpPageInput .b1:focus::placeholder{
+    color: transparent;
+}
+.signUpPageInput .b2:focus::placeholder{
+    color: transparent;
+}
+.signUpPageInput .b3:focus::placeholder{
+    color: transparent;
+}
+.signUpPageInput .b4{
+    font-size: 1.2em;
+    margin: 15px 0;
+    padding: 5px 10px;
+}
+.signUpPageInput .GoogleSignIn{
+    background-color: rgb(135, 194, 77);
+    padding: 10px 25px;
+    border-radius: 20px;
+    line-height: 1;
+    color: white;
+    cursor: pointer;
+}
+.signUpPageInput .GoogleSignIn:hover{
+    background-color: rgb(90, 137, 43);
+    box-shadow: 1px 1px 20px 2px rgb(135, 194, 77);
+}
+.signUpPageInput .divDivider{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.signUpPageInput .hr{
+    display: inline-block;
+    background-color: grey;
+    width: 40%;
+    height: 1.5px;
+}

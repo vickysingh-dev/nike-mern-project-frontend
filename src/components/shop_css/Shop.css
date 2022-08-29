@@ -1,0 +1,12 @@
+.shop{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shopParent{
+    height: auto;
+    width: 90%;
+    border: 2px solid black;
+    position: relative;
+}

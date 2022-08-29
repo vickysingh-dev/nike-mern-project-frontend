@@ -1,0 +1,7 @@
+.signUpPagePicture{
+    width: 30%;
+    height: 80%;
+    background-image: url('/public/images/signUpPageImage.jpg');
+    background-size: cover;
+    background-position: center;
+}

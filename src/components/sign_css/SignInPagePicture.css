@@ -1,0 +1,7 @@
+.signInPagePicture{
+    width: 30%;
+    height: 80vh;
+    background-image: url('/public/images/signInPageImage.jpg');
+    background-size: cover;
+    background-position: center;
+}

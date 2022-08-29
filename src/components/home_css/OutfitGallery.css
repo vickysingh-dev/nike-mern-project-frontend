@@ -1,0 +1,37 @@
+.OutfitGallery{
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.men{
+    background-image: url('/public/images/menoutfit.webp');
+    background-size: cover;
+    background-position: center;
+}
+.women{
+    background-image: url('/public/images/womenoutfit.webp');
+    background-size: cover;
+    background-position: center;
+}
+.kids{
+    background-image: url('/public/images/kidsoutfit.webp');
+    background-size: cover;
+    background-position: center;
+}
+.Outfit{
+    width: 30%;
+    height: 75vh;
+    position: relative;
+}
+.menLink, .womenLink, .kidLink {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: white;
+    font-weight: 700;
+}

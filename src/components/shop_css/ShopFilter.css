@@ -1,0 +1,8 @@
+.shopFilter{
+    border: 2px solid green;
+    width: 25%;
+    min-height: 100vh;
+    display: inline-block;
+    position: sticky;
+    top:  70px;
+}  

@@ -1,0 +1,46 @@
+.footer{
+    height: 100vh;
+    position: relative;
+    background-image: url('/public/images/footerPic.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.footerOverlay{
+    position: absolute;
+    background-image: radial-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.45),rgba(0,0,0,0.65), rgba(0,0,0,0.75));
+    width: 100%;
+    height: 100vh;
+}
+.footerDisplay{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    line-height: 3;
+}
+.social-media-heading{
+    font-size: 1.7em;
+    color: white;
+}
+.media-icons{
+    font-size: 2em;
+    color: white;
+}
+.company-address{
+    font-size: 1.2em;
+    color: white;
+}
+.rights-reserved{
+    font-size: 1.2em;
+    color: white;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.social-media-icons{
+    display: flex;
+    justify-content: space-around;
+}

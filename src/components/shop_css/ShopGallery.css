@@ -1,0 +1,12 @@
+.shopGallery{
+    border: 2px solid red;
+    width: 74%;
+    height: fit-content;
+    display: inline-block;
+    position: absolute;
+}
+.cardParent{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
