@@ -22,7 +22,7 @@
     width: 200px;
     text-align: center;
     border: none;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     outline: none;
     padding: 5px;
     margin: 10px 0 5px 0;
@@ -32,7 +32,7 @@
     width: 200px;
     text-align: center;
     border: none;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     outline: none;
     padding: 5px;
     margin: 10px 0 5px 0;
@@ -42,10 +42,18 @@
     width: 200px;
     text-align: center;
     border: none;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     outline: none;
     padding: 5px;
     margin: 10px 0 5px 0;
+}
+.doodleMumma{
+    border-bottom: 1px solid black;
+}
+.inputDoodles{
+    font-size: 1.25em;
+    margin: 0;
+    line-height: 0;
 }
 .signUpPageInput .b1:focus::placeholder{
     color: transparent;

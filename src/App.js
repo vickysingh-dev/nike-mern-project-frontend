@@ -20,8 +20,7 @@ function App() {
         <Route exact path="/men" element={<ShopPage />} />
         <Route exact path="/women" element={<ShopPage />}  />
         <Route exact path="/kids" element={<ShopPage />} />
-        <Route exact path="/sale" element={<ShopPage />} />
-        <Route exact path="/shoes" element={<ShopPage />} />
+
 
         {/* Signing  */}
 
