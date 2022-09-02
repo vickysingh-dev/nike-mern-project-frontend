@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+.mission{
+    height: 100vh;
+    position: relative;
+}
+.mission h2{
+    color: black;
+    font-size: 2em;
+    margin-top: 200px;
+    margin-left: 300px;
+}
+.mission h1{
+    color: black;
+    font-family: 'Anton', sans-serif;
+    font-size: 7em;
+    line-height: 1;
+    margin-left: 300px;
+}
+.mission h3{
+    display: inline-block;
+    font-size: 1.5em;
+    color: black;
+    position: absolute;
+    right: 20px;
+}
+.mission .grey{
+    color: grey;
+}

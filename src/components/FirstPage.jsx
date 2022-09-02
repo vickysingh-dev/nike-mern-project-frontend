@@ -3,7 +3,7 @@ import HomePage from './home/HomePage';
 import OutfitOverlay from './home/OutfitOverlay';
 import OutfitGallery from './home/OutfitGallery';
 import ShoesOverlay from './home/ShoesOverlay';
-import SignUp from './home/SignUp';
+import About from './home/About';
 import Footer from './home/Footer';
 
 function FirstPage() {
@@ -14,7 +14,7 @@ function FirstPage() {
             <OutfitOverlay />
             <OutfitGallery />
             <ShoesOverlay />
-            <SignUp />
+            <About />
             <Footer />
         </div>
     )

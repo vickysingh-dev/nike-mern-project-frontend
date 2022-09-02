@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+.comment{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+}
+.comment-parent{
+    background-color: black;
+    padding: 20px 50px;
+}
+.comment-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nike-logo-heading{
+    font-size: 1.5em;
+    color: white;
+    margin-bottom: 20px;
+}
+.nike-logo-comment{
+    height: 80px;
+    width: 120px;
+}
+.nike-logo-comment img{
+    height: 100%;
+    width: 100%;
+}
+form > div {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+form .comment-textbox{
+    display: block;
+}
+form h2{
+    font-size: 15px;
+    padding: 0 20px;
+    color: white;
+}
+form input{
+    padding: 0 10px;
+    margin: 0 20px 0 0;
+    border: none;
+    outline: none;
+    background-color: black;
+    border-bottom: 1px solid white;
+}
+form input:focus, form input:hover{
+    border: none;
+    outline: none;
+    background-color: white;
+}
+.comment-textbox textarea{
+    margin: 0 20px;
+    width: calc(100% - 40px);
+    resize: none;
+    outline: none;
+    border: none;
+    background-color: black;
+    border-bottom: 1px solid white;
+}
+.comment-textbox textarea:focus, .comment-textbox textarea:hover{
+    background-color: white;
+}
+form .comment-submit{
+    border: 1px solid black;
+    width: calc(100% - 40px);
+    margin: auto;
+    margin-bottom: 20px;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+form .comment-submit:hover{
+    background-color: white;
+    color: black;
+}

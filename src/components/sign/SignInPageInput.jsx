@@ -58,7 +58,7 @@ export default function SignInPageInput() {
                     <input type="password" name="password" className="t2" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
                 </span>
 
-                <a href="#"  className="forgotPassword">Forgot Password</a>
+                <NavLink to="#"  className="forgotPassword">Forgot Password</NavLink>
 
                 <input type="button" name="b1" value="Sign In" className="t3" onClick={loginUser}></input>
             </div>
