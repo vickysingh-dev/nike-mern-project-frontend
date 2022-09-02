@@ -8,10 +8,12 @@
 }
 .filterHeadingMain{
     text-align: center;
+    color: black;
 }
 .shopFilter h2{
     margin-top: 20px;
     margin-left: 45px;
+    color: black;
 }
 .hr{
     display: block;

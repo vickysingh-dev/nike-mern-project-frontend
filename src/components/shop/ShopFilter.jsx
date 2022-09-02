@@ -28,7 +28,6 @@ export default function ShopFilter() {
                 <div className="colorToken" value="pink" style={{'background-color':'pink'}}></div>
                 <div className="colorToken" value="violet" style={{'background-color':'violet'}}></div>
             </div>
-            <div className="hr"></div>
         </div>
     );
 }
