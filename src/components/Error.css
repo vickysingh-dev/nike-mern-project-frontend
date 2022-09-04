@@ -1,0 +1,11 @@
+
+/* .Navbar-display{
+    display: none;
+} */
+.error img{
+    height: 200px;
+    width: 200px;
+}
+.error h1::after{
+    content: "(";
+}

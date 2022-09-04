@@ -1,0 +1,72 @@
+.itemBar{
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.itemBar-parent{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.itemBar-image{
+    height: 70vh;
+    width: auto;
+}
+.itemBar-image img{
+    height: 100%;
+    width: fit-content
+}
+.itemBar-detail h1{
+    color: black;
+    font-size: 3em;
+}
+.itemBar-detail h2{
+    color: rgb(30, 137, 203);
+    font-size: 1em;
+}
+.itemBar-detail h3{
+    color: black;
+    font-size: 2em;
+    text-align: right;
+}
+.itemBar-detail h4{
+    color: black;
+    font-size: 2em;
+    text-align: left;
+}
+.itemBar-sizes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.itemBar-sizes div{
+    border: 1px solid grey;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.itemBar-sizes div:hover{
+    background-color: lightgrey;
+}
+.itemBar-addCart{
+    border: 2px solid black;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 0;
+    margin: 0 0 10px 0;
+}
+.itemBar-favorite{
+    border: 2px solid black;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 0;
+    margin: 0 0 20px 0;
+}
+.itemBar-addCart:hover , .itemBar-favorite:hover{
+    background-color: black;
+    color: white;
+}

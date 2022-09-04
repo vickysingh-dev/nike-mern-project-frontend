@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import '../sign_css/SignUpPageInput.css';
 
@@ -22,36 +22,44 @@ export default function SignUpPageInput() {
         name = e.target.name;
         value = e.target.value;
 
-        setUser({ ...user , [name]: value});
+        setUser({ ...user, [name]: value });
     }
 
     const postData = async (e) => {
         e.preventDefault();
 
-        const { name , email , password } = user;
+        const { name, email, password } = user;
 
-            const res = await fetch("http://localhost:8000/signup", {
-                method: "POST",
-                headers: {
-                    "content-type" : "application/json"
-                },
-                body: JSON.stringify({
-                    name, email, password
-                })
-            });
-    
-            const data = await res.json();
-    
-            if (data.status === 422 || !data) {
-                window.alert("Invalid Registration");
-                console.log("Invalid Registration");
-            }
-            else {
-                window.alert("User Registered Successfully");
-                console.log("User Registered Successfully");
-    
-                navigate("/signin", {replace: "true"});
-            }
+        // function isName(str) {
+        //     return str.length >= 1 && str.match(/^ [A-Za-z]+$/);
+        // }
+
+        // function isEmail(str) {
+        //     return str.length >= 1
+        // }
+
+        const res = await fetch("http://localhost:8000/signup", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                name, email, password
+            })
+        });
+
+        const data = await res.json();
+
+        if (data.status === 422 || !data) {
+            window.alert("Invalid Registration");
+            console.log("Invalid Registration");
+        }
+        else {
+            window.alert("User Registered Successfully");
+            console.log("User Registered Successfully");
+
+            navigate("/signin", { replace: "true" });
+        }
     }
 
     return (

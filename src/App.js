@@ -6,6 +6,7 @@ import FirstPage from './components/FirstPage';
 import ShopPage from './components/ShopPage';
 import SignUpPage from './components/sign/SignUpPage';
 import SignInPage from './components/sign/SignInPage';
+import Item from './components/item/Item';
 
 function App() {
   return (
@@ -30,6 +31,11 @@ function App() {
         {/* cart */}
 
         {/* <Route exact path="/cart" element={<Cart />} /> */}
+
+
+        {/* item  */}
+
+        <Route exact path="/item" element={<Item />} />
 
       </Routes>
 

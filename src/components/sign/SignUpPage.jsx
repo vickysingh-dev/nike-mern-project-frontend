@@ -8,8 +8,8 @@ import SignUpPagePicture from "./SignUpPagePicture";
 function SignUpPage() {
     return (
         <div className="signUpPage">
-            <SignUpPagePicture />
-            <SignUpPageInput />
+                <SignUpPagePicture />
+                <SignUpPageInput />
         </div>
     );
 }
