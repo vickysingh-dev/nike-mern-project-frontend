@@ -18,9 +18,9 @@ function App() {
 
         {/* ShopPage */}
 
-        <Route exact path="/men" element={<ShopPage />} />
-        <Route exact path="/women" element={<ShopPage />}  />
-        <Route exact path="/kids" element={<ShopPage />} />
+        <Route exact path="/men" element={<ShopPage props={ {category: "men"} } />} />
+        <Route exact path="/women" element={<ShopPage props={ {category: "women"} } />}  />
+        <Route exact path="/kids" element={<ShopPage props={ {category: "kids"} } />} />
 
 
         {/* Signing  */}

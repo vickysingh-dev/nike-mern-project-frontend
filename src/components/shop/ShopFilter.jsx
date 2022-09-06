@@ -16,17 +16,20 @@ export default function ShopFilter() {
                 <div className="sizeTokens" value="xxl">XXL</div>
             </div>
             <div className="hr"></div>
-            <h2>Color</h2>
-            <div className="filterColor">
-                <div className="colorToken" value="red" style={{'background-color':'red'}}></div>
-                <div className="colorToken" value="green" style={{'background-color':'green'}}></div>
-                <div className="colorToken" value="blue" style={{'background-color':'blue'}}></div>
-                <div className="colorToken" value="white" style={{'background-color':'white'}}></div>
-                <div className="colorToken" value="black" style={{'background-color':'black'}}></div>
-                <div className="colorToken" value="grey" style={{'background-color':'grey'}}></div>
-                <div className="colorToken" value="brown" style={{'background-color':'brown'}}></div>
-                <div className="colorToken" value="pink" style={{'background-color':'pink'}}></div>
-                <div className="colorToken" value="violet" style={{'background-color':'violet'}}></div>
+            <h2>Brand</h2>
+            <div className="filterBrand">
+                <div>
+                    <input type="checkbox" id="nikeJordan" className="brandInput" value="Nike Jordan" />
+                    <label for="nikeJordan"> Nike Jordan</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="nikeAirMax" className="brandInput" value="Nike Air Maxx" />
+                    <label for="nikeAirMax"> Nike Air Maxx</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="nikeBlazers" className="brandInput" value="Nike Blazers" />
+                    <label for="nikeBlazers"> Nike Blazers</label>
+                </div>
             </div>
         </div>
     );

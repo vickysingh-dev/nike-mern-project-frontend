@@ -3,35 +3,29 @@ import '../shop_css/Card.css';
 
 import { useNavigate } from "react-router-dom";
 
-// import sample from "./../../assets/sample-shoes.webp";
-
 export default function Card(props) {
 
     const navigate = useNavigate();
 
-    // const imgAddress = "sample-shoes.webp";
+    const [title, setTitle] = useState("");
+    const [price, setPrice] = useState("");
+    const [address, setAddress] = useState("");
 
-    // const [title, setTitle] = useState("");
-    // const [price, setPrice] = useState("");
+    useEffect(() => {
+        setTitle(props.props.title);
+        setPrice(props.props.price);
+        setAddress(props.props.address)
+    }, []);
 
-    // useEffect(() => {
-    //     setTitle(props.title);
-    //     setPrice(props.price);
-    // }, []);
+    // const title = props.props.title;
+    // const price = props.props.price;
 
-    const title = props.props.title;
-    const price = props.props.price;
-
-    const address = props.props.address;
-
-    console.log(address);
+    // const address = props.props.address;
     
     var url = "/item";
 
-    url += "?";
-
     return (
-        <div className="card" onClick={(e) => navigate(url, {replace: true})}>
+        <div className="card" onClick={(e) => navigate(url)}>
             <div className="card-image">
                 <img src={address} />
             </div>

@@ -30,14 +30,6 @@ export default function SignUpPageInput() {
 
         const { name, email, password } = user;
 
-        // function isName(str) {
-        //     return str.length >= 1 && str.match(/^ [A-Za-z]+$/);
-        // }
-
-        // function isEmail(str) {
-        //     return str.length >= 1
-        // }
-
         const res = await fetch("http://localhost:8000/signup", {
             method: "POST",
             headers: {

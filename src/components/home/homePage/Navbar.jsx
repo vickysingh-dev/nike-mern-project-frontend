@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { IoBagHandleOutline, IoPersonOutline } from "react-icons/io5";
+import { IoBagHandleOutline, IoPersonOutline, IoBagHandle, IoPerson } from "react-icons/io5";
 import '../../home_css/homepage/Navbar.css';
 
 function Navbar() {
@@ -15,7 +15,7 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbar-cart">
-                <NavLink to={"/signin"} className="sign"><IoPersonOutline /></NavLink>
+                <NavLink to={"/signin"} className="sign" onMouseEnter={() => {}}><IoPersonOutline /></NavLink>
                 <NavLink to={"#"} className="cart"><IoBagHandleOutline /></NavLink>
             </div>
         </div>
