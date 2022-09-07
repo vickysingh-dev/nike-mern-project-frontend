@@ -16,7 +16,7 @@ function Navbar() {
             </div>
             <div className="navbar-cart">
                 <NavLink to={"/signin"} className="sign" onMouseEnter={() => {}}><IoPersonOutline /></NavLink>
-                <NavLink to={"#"} className="cart"><IoBagHandleOutline /></NavLink>
+                <NavLink to={"/cart"} className="cart"><IoBagHandleOutline /></NavLink>
             </div>
         </div>
     )

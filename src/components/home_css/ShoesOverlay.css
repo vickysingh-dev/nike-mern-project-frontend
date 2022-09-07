@@ -31,5 +31,6 @@
 }
 .ShoesLink:hover{
     background-color: white;
-    color: grey;
+    color: black;
+    box-shadow: 2px 2px 20px 5px white;
 }

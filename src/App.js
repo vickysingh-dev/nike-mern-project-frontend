@@ -7,6 +7,8 @@ import ShopPage from './components/ShopPage';
 import SignUpPage from './components/sign/SignUpPage';
 import SignInPage from './components/sign/SignInPage';
 import Item from './components/item/Item';
+import CartPage from './components/cart/CartPage';
+import Error from './components/Error';
 
 function App() {
   return (
@@ -30,12 +32,17 @@ function App() {
 
         {/* cart */}
 
-        {/* <Route exact path="/cart" element={<Cart />} /> */}
+        <Route exact path="/cart" element={<CartPage />} />
 
 
         {/* item  */}
 
         <Route exact path="/item" element={<Item />} />
+
+
+        {/* error  */}
+
+        <Route exact path="/error" element={<Error />} />
 
       </Routes>
 

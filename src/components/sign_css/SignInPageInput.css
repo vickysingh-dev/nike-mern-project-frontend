@@ -1,95 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 .signInPageInput{
-    width: 30%;
-    height: 80vh;
-    background-color: white;
+    width: 400px;
+    height: fit-content;
+    border: 2px solid black;
+    padding: 40px 20px 10px 20px;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     flex-direction: column;
-}
-.welcome{
-    color: black;
-    font-weight: 500;
-    margin: 10px 0;
-}
-.signInPageInput .div1{
-    display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: black;
+    font-family: 'Roboto Condensed', sans-serif;
+    box-shadow: 5px 5px 20px 5px;
+}
+.signInLogo{
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
-.signInPageInput .t1{
-    font-size: 1.2em;
-    width: 200px;
-    text-align: center;
+.signInLogo img{
+    height: 60px;
+    width: auto;
+    margin: auto;
+}
+.signInHeading{
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+.signInInputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+.emailInput input{
+    padding: 5px;
     border: none;
     outline: none;
-    padding: 5px;
-    margin: 5px 0 5px 0;
-}
-.signInPageInput .t2{
-    font-size: 1.2em;
-    width: 200px;
+    background-color: black;
+    color: white;
     text-align: center;
+}
+.emailInput input:focus{
+    border-bottom: 2px solid white;
+    text-align: left;
+}
+.passwordInput input{
+    padding: 5px;
     border: none;
     outline: none;
-    padding: 5px;
-    margin: 10px 0 5px 0;
+    background-color: black;
+    color: white;
+    text-align: center;
 }
-.signInPageInput .t3{
-    font-size: 1.2em;
-    margin: 15px 0;
-    padding: 5px 10px;
-    background-color: white;
+.passwordInput input:focus{
+    border-bottom: 2px solid white;
+    text-align: left;
+}
+.signInIcons{
+    color: white;
+    font-size: 1.25em;
+    position: relative;
+    top: 5px;
+    margin: 0 10px;
+}
+.forgotPassword{
+    margin-top: 20px;
+    text-align: center;
+    color: grey;
+}
+.submitInput{
+    margin-top: 10px;
+}
+.submitInput input{
     width: 100%;
-    cursor: pointer;
-}
-.signInPageInput .t3:hover{
+    font-size: 1.25em;
     color: white;
     background-color: black;
-    box-shadow: 2px 2px 10px 1px grey;
-}
-.signInPageInput .t1:focus::placeholder{
-    color: transparent;
-}
-.signInPageInput .t2:focus::placeholder{
-    color: transparent;
-}
-.signInPageInput .forgotPassword{
-    font-size: 0.8em;
-    margin: 10px 0 0 0;
-}
-/* .div2{
-    border: 2px solid green;
-} */
-.signInPageInput .GoogleSignIn{
-    background-color: rgb(135, 194, 77);
-    padding: 10px 25px;
-    border-radius: 20px;
-    line-height: 1;
-    color: white;
+    padding: 5px 0;
+    margin: 15px 0;
     cursor: pointer;
+    transition: 0.3s ease;
 }
-.signInPageInput .GoogleSignIn:hover{
-    background-color: rgb(90, 137, 43);
-    box-shadow: 1px 1px 20px 2px rgb(135, 194, 77);
+.submitInput input:hover{
+    border: 2px solid white;
 }
-/* .div3{
-    border: 2px solid blue;
-} */
-.div3 h5 a {
-    font-size: 0.8em;
-}
-.signInPageInput .divDivider{
-    width: 80%;
+.signInDivider{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    color: white;
 }
-.signInPageInput .hr{
-    display: inline-block;
-    background-color: grey;
-    width: 40%;
-    height: 1.5px;
-    
+.signInDivider .signInOr{
+    margin: 0 20px;
+}
+.signInDivider .hr{
+    width: 80%;
+    background-color: white;
+    border: 1px solid white;
+}
+.signInAlt{
+    width: 100%;
+}
+.signInGoogle{
+    margin: 10px;
+}
+.googleBtn{
+    width: fit-content;
+    margin: 10px auto;
+    color: white;
+    padding: 5px 25px;
+    border: 2px solid black;
+    transition: 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+.googleBtn .googleIcon{
+    position: relative;
+    top: 2px;
+    margin: 0 10px;
+}
+.googleBtn:hover{
+    border: 2px solid white;
+    border-radius: 25px;
+}
+.signUpOption{
+    margin-top: 10px;
+    text-align: right;
+}
+.signUpOption span{
+    color: white;
 }

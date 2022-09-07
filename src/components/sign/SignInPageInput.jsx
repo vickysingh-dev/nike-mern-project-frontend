@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import '../sign_css/SignInPageInput.css';
 
+import logo from "./../../assets/nike-logo-comment.jpg";
+
 import { IoLogoGoogle } from "react-icons/io5";
 import { IoMail } from "react-icons/io5";
 import { IoLockOpen } from "react-icons/io5";
@@ -10,66 +12,95 @@ export default function SignInPageInput() {
 
     const navigate = useNavigate();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [user, setUser] = useState({
+        email: "", password: ""
+    });
+
+    let name, value;
+
+    const handleInput = (e) => {
+        e.preventDefault();
+        name = e.target.name;
+        value = e.target.value;
+
+        setUser({ ...user, [name]: value });
+    }
 
     const loginUser = async (e) => {
         e.preventDefault();
 
-        const res = await fetch("http://localhost:8000/signin", {
-            method: "POST",
-            headers: {
-                "content-type" : "application/json"
-            },
-            body : JSON.stringify({
-                email, password
-            })
-        })
+        const { email, password } = user;
 
-        const data = await res.json();
-
-        if (data.status === 422 || !data){
-            window.alert("Invalid Credentials");
-            console.log("Invalid Credentials");
+        if ( !email || !password ) {
+            window.alert("Incomplete Details Filled");
         }
         else {
-            window.alert("Login Success!");
-            console.log("Login Success");
-
-            navigate("/", {replace: true});
+            const res = await fetch("http://localhost:8000/signin", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    email, password
+                })
+            })
+    
+            const data = await res.json();
+    
+            if (data.status === 422 || !data) {
+                window.alert("Invalid Credentials");
+                console.log("Invalid Credentials");
+            }
+            else {
+                window.alert("Login Success!");
+                console.log("Login Success");
+    
+                navigate("/", { replace: true });
+            }
         }
     }
 
     return (
         <div className="signInPageInput">
-            <div className="div1">
 
-                <h2 className="welcome">Welcome Back,</h2>
-                <span className="doodleMumma">
-                    <span className="inputDoodles">
+            <div className="signInLogo">
+                <img src={logo} alt="some text here" />
+                <div className="signInHeading">Welcome Back Homie</div>
+            </div>
+
+            <div className="signInInputs">
+                <div className="emailInput">
+                    <span className="signInIcons">
                         <IoMail />
                     </span>
-                    <input type="text" name="userId" className="t1" placeholder="Email Id" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-                </span>
-                <span className="doodleMumma">
-                    <span className="inputDoodles">
+                    <input type="email" className="b2" name="email" placeholder="E-mail" value={user.email} onChange={handleInput}></input>
+                </div>
+                <div className="passwordInput">
+                    <span className="signInIcons">
                         <IoLockOpen />
                     </span>
-                    <input type="password" name="password" className="t2" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-                </span>
+                    <input type="password" className="b3" name="password" placeholder="Password" value={user.password} onChange={handleInput}></input>
+                </div>
+                <div className="forgotPassword">
+                    <NavLink to="#" className="forgotPassword">Forgot Password</NavLink>
+                </div>
+                <div className="submitInput">
+                    <input type="button" className="b4" value="Log In" onClick={loginUser}></input>
+                </div>
+            </div>
 
-                <NavLink to="#"  className="forgotPassword">Forgot Password</NavLink>
-
-                <input type="button" name="b1" value="Sign In" className="t3" onClick={loginUser}></input>
+            <div className="signInDivider">
+                <div className="hr"></div>
+                <span className="signInOr">OR</span>
+                <div className="hr"></div>
             </div>
-            <div className="divDivider">
-                <div className="hr"></div><span>OR</span><div className="hr"></div>
-            </div>
-            <div className="div2">
-                <div className="GoogleSignIn"><IoLogoGoogle /> Sign In With Google</div>
-            </div>
-            <div className="div3">
-                <h5 className="createAccount">New to Nike? <NavLink to={"/signup"}>CREATE ACCOUNT</NavLink></h5>
+            <div className="signInAlt">
+                <div className="signInGoogle">
+                    <div className="googleBtn"><span className="googleIcon"><IoLogoGoogle /></span>Sign In With Google</div>
+                </div>
+                <div className="signUpOption">
+                    New to Nike,  <NavLink to="/signup"><span>Create Account</span></NavLink>
+                </div>
             </div>
         </div>
     );

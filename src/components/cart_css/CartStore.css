@@ -1,0 +1,5 @@
+.cartStore{
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: space-around;
+}
