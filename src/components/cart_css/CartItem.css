@@ -6,6 +6,7 @@
     border-radius: 15px;
     box-shadow: 1px 1px 20px 1px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }

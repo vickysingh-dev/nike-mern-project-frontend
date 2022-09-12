@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 .signUpPageInput{
     width: 400px;
     height: fit-content;
@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     background-color: black;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Oswald', sans-serif;
     box-shadow: 5px 5px 20px 5px;
 }
 .signUpLogo{
@@ -37,10 +37,14 @@
 .nameInput input{
     padding: 5px;
     border: none;
+    border-bottom: 2px solid black;
     outline: none;
     background-color: black;
     text-align: center;
     color: white;
+}
+.nameInput input:hover{
+    border-bottom: 2px solid white;
 }
 .nameInput input:focus{
     border-bottom: 2px solid white;
@@ -49,6 +53,7 @@
 .emailInput input{
     padding: 5px;
     border: none;
+    border-bottom: 2px solid black;
     outline: none;
     background-color: black;
     color: white;
@@ -58,9 +63,13 @@
     border-bottom: 2px solid white;
     text-align: left;
 }
+.emailInput input:hover{
+    border-bottom: 2px solid white;
+}
 .passwordInput input{
     padding: 5px;
     border: none;
+    border-bottom: 2px solid black;
     outline: none;
     background-color: black;
     color: white;
@@ -69,6 +78,9 @@
 .passwordInput input:focus{
     border-bottom: 2px solid white;
     text-align: left;
+}
+.passwordInput input:hover{
+    border-bottom: 2px solid white;
 }
 .signUpIcons{
     color: white;

@@ -4,12 +4,12 @@ import '../shop_css/Shop.css';
 import ShopFilter from "./ShopFilter";
 import ShopGallery from "./ShopGallery";
 
-function Shop(props) {
+function Shop({ category }) {
     return (
         <div className="shop">
             <div className="shopParent">
                 <ShopFilter />
-                <ShopGallery props={props} />
+                <ShopGallery category={category} />
             </div>
         </div>
     )

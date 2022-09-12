@@ -35,4 +35,5 @@
     font-weight: 600;
     color: black;
     transition: 0.3s;
+    cursor: pointer;
 }

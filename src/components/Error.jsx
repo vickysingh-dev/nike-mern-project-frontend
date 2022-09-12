@@ -3,6 +3,8 @@ import "./Error.css";
 
 import error_pic from "./../assets/error.png";
 
+import Loader from "./Loader";
+
 export default () => {
     return (
         <div className="error">

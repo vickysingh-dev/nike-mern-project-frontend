@@ -4,6 +4,10 @@ import '../sign_css/SignUpPageInput.css';
 
 import logo from "./../../assets/nike-logo-comment.jpg";
 
+import Loader from "../Loader";
+
+import ModalAlert from "../modals/ModalAlert";
+
 import { IoLogoGoogle, IoLogoWindows } from "react-icons/io5";
 import { IoPersonSharp } from "react-icons/io5";
 import { IoMail } from "react-icons/io5";
@@ -16,6 +20,16 @@ export default function SignUpPageInput() {
     const [user, setUser] = useState({
         name: "", email: "", password: ""
     });
+    const [loader, setLoader] = useState(false);          // Loader
+
+    const [modalOpen, setModalOpen] = useState(false);    // Modal opener
+
+    const modalProps = { 
+        navigateTo : "/signin", 
+        modalTitle : "Sign Up Successfull!", 
+        modalBody : "Welcome to the Nike Family",
+        modalFooter : "Proceed"
+    }
 
     let name, value;
 
@@ -36,37 +50,52 @@ export default function SignUpPageInput() {
             window.alert("Incomplete Details");
         }
         else {
+            try{
 
-            const res = await fetch("http://localhost:8000/signup", {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify({
-                    name, email, password
-                })
-            });
+                setLoader(true);
 
-            const data = await res.json();
-
-            if (data.status === 422 || !data) {
-                window.alert("Invalid Registration");
-                console.log("Invalid Registration");
+                const res = await fetch("http://localhost:8000/signup", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name, email, password
+                    })
+                });
+    
+                const data = await res.json();
+    
+                if (data.status === 422 || !data) {
+                    setLoader(false);
+                    setModalOpen(true);
+                    console.log("Invalid Registration");
+                }
+                else {
+                    setLoader(false);
+                    setModalOpen(true);
+                    console.log("User Registered Successfully");
+    
+                    navigate("/signin", { replace: "true" });
+                }
             }
-            else {
-                window.alert("User Registered Successfully");
-                console.log("User Registered Successfully");
-
-                navigate("/signin", { replace: "true" });
+            catch(err){
+                console.log(err);
+                setModalOpen(true);
+                setLoader(false);
             }
+
         }
     }
 
     return (
         <div className="signUpPageInput">
+
+            { loader && <Loader />}
+
             <div className="signUpLogo">
                 <img src={logo} alt="some text here" />
-                <div className="signUpHeading">Be A Part Of The Nike Family</div>
+                <div className="signUpHeading">Fill below details to Join Us</div>
             </div>
             <div className="signUpInputs">
                 <div className="nameInput">
@@ -98,12 +127,15 @@ export default function SignUpPageInput() {
             </div>
             <div className="signUpAlt">
                 <div className="signUpGoogle">
-                    <div className="googleBtn"><span className="googleIcon"><IoLogoGoogle /></span>Sign In With Google</div>
+                    <div className="googleBtn"><span className="googleIcon"><IoLogoGoogle /></span>Sign Up With Google</div>
                 </div>
                 <div className="signInOption">
                     Already A Member, <NavLink to="/signin"><span>Log In</span></NavLink>
                 </div>
             </div>
+
+            { modalOpen && <ModalAlert setOpenModal={setModalOpen} props={ modalProps }/> }
+
         </div>
     );
 }

@@ -16,15 +16,15 @@
     align-items: center;
 }
 .cartItems::-webkit-scrollbar {
-    width: 12px;               /* width of the entire scrollbar */
+    width: 12px;
   }
   
   .cartItems::-webkit-scrollbar-track {
-    background: lightgrey;        /* color of the tracking area */
+    background: rgb(227, 226, 226);
   }
   
   .cartItems::-webkit-scrollbar-thumb {
-    background-color: darkgrey;    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 3px solid lightgrey;  /* creates padding around scroll thumb */
+    background-color: darkgrey;
+    border-radius: 20px;
+    border: 3px solid rgb(227, 226, 226);
   }

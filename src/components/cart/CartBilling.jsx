@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./../cart_css/CartBilling.css";
 
+import Modal from "../modals/Modal";
+
 const CartBilling = () => {
+
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const modalProps = {
+        navigateTo : "/",
+        modalTitle : "Proceed To Shipping",
+        modalBody : "Items will be dispatched to your default Shipping Location.",
+        cancelBtn : "Maybe Later",
+        confirmBtn : "Proceed"
+    }
+
     return (
         <div className="cartBilling">
             <h1>Billing</h1>
@@ -22,9 +35,14 @@ const CartBilling = () => {
                         <h4>Order Total</h4>
                         <h3>Price</h3>
                     </div>
-                    <button className="checkOut">Proceed To CheckOut</button>
+                    <button className="checkOut" onClick={ () => {
+                        setModalOpen(true);
+                    }}>Proceed To CheckOut</button>
                 </div>
             </div>
+
+            { modalOpen && <Modal setOpenModal={setModalOpen} props={ modalProps }/>}
+
         </div>
     )
 }

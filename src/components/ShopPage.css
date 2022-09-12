@@ -1,4 +1,3 @@
-
 .shopPage .Navbar-display{
     position: sticky;
     top: 0;
@@ -8,5 +7,5 @@
 }
 
 .shopPage .footer{
-    z-index: 1000;
+    z-index: 700;
 }

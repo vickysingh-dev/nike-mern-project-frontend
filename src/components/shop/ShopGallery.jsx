@@ -1,41 +1,50 @@
 import React, { useState, useEffect } from "react";
-import '../shop_css/ShopGallery.css';
+import "../shop_css/ShopGallery.css";
 
 // import Error from "../Error";
 
 import Card from "./Card";
+import Loader from "../Loader";
 
-export default function ShopGallery(props)  {
-
-    const [items, setItems] = useState([]);
-    const [category, setCategory] = useState("");
-
+export default function ShopGallery({ category }) {
     console.log(category);
-    
+    const [items, setItems] = useState([]);
+    // const [category, setCategory] = useState("");
+    const [loader, setLoader] = useState(true);
+
+    console.log("shop gallery rerendered");
+
     const fetchItems = async () => {
+        // setLoader(true);
 
-        setCategory(props.props.props.props.category);
+        // setCategory(category);
 
-        const res = await fetch(`http://localhost:8000/${category}`, {
-            method: "POST",
-            headers: {
-                "content-type" : "application/json"
-            },
-            body : JSON.stringify({
-                category : category
-            })
-        })
+        try {
+            const res = await fetch(`http://localhost:8000/${category}`, {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    category: category,
+                }),
+            });
 
-        const data = await res.json();
+            const data = await res.json();
 
-        if (data.status === 422 || !data){
-            console.log("Failed to load the resources!");
+            if (data.status === 422 || !data) {
+                console.log("Failed to load the resources!");
+            } else {
+                setItems(data);
+                console.log("Item Changed", data);
+            }
+
+            setLoader(false);
+        } catch (err) {
+            console.log(err);
+            setLoader(false);
         }
-        else {
-            setItems(data);
-            console.log("Item Changed");
-        }
-    }
+    };
 
     useEffect(() => {
         fetchItems();
@@ -43,11 +52,11 @@ export default function ShopGallery(props)  {
 
     return (
         <div className="shopGallery">
-            {   
-                items.map(function(item, index){
-                    return <Card key={index} props={item}/>
-                })
-            }
+            {loader && <Loader />}
+
+            {items.map(function (item, index) {
+                return <Card key={index} item={item} />;
+            })}
         </div>
     );
 }

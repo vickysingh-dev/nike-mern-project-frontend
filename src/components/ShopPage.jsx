@@ -5,12 +5,12 @@ import Navbar from "./home/homePage/Navbar";
 import Footer from "./home/Footer";
 import Shop from "./shop/Shop";
 
-function ShopPage(props) {
+function ShopPage({ category }) {
     
     return (
         <div className="shopPage">
             <Navbar />
-            <Shop props={props}/>
+            <Shop category={category}/>
             <Footer />
         </div>
     )

@@ -14,26 +14,10 @@ const Comment = () => {
 
     const sendComment = async () => {
 
-        // const emailRegex = /\S+@\S+\.\S+/;
-        // const nameRegex = /^ [a-zA-Z]+$/;
-
         if ( !name || !email || !comment) {
             window.alert("Fill all the blanks to submit.");
             return 
         }
-
-        // const sendEmail = () => {
-        //     emailjs.sendForm('service_n6r2s1m', 'template_iijr0a6' )
-        // }
-
-        // if ( emailRegex.test(email) && nameRegex.test(name)) {
-        //     window.alert("Valid")
-        //     return 
-        // }
-        // else{
-        //     window.alert("Invalid Name or Email");
-        //     return
-        // }
 
         const res = await fetch("http://localhost:8000/comment", {
             method: "POST",

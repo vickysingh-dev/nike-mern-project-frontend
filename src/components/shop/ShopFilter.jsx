@@ -1,5 +1,5 @@
 import React from "react";
-import '../shop_css/ShopFilter.css';
+import "../shop_css/ShopFilter.css";
 
 export default function ShopFilter() {
     return (
@@ -8,27 +8,54 @@ export default function ShopFilter() {
             <div className="hr"></div>
             <h2>Size</h2>
             <div className="filterSize">
-                <div className="sizeTokens" value="xs">XS</div>
-                <div className="sizeTokens" value="s">S</div>
-                <div className="sizeTokens" value="m">M</div>
-                <div className="sizeTokens" value="l">L</div>
-                <div className="sizeTokens" value="xl">XL</div>
-                <div className="sizeTokens" value="xxl">XXL</div>
+                <div className="sizeTokens" value="xs">
+                    XS
+                </div>
+                <div className="sizeTokens" value="s">
+                    S
+                </div>
+                <div className="sizeTokens" value="m">
+                    M
+                </div>
+                <div className="sizeTokens" value="l">
+                    L
+                </div>
+                <div className="sizeTokens" value="xl">
+                    XL
+                </div>
+                <div className="sizeTokens" value="xxl">
+                    XXL
+                </div>
             </div>
             <div className="hr"></div>
             <h2>Brand</h2>
             <div className="filterBrand">
                 <div>
-                    <input type="checkbox" id="nikeJordan" className="brandInput" value="Nike Jordan" />
-                    <label for="nikeJordan"> Nike Jordan</label>
+                    <input
+                        type="checkbox"
+                        id="nikeJordan"
+                        className="brandInput"
+                        value="Nike Jordan"
+                    />
+                    <label htmlFor="nikeJordan"> Nike Jordan</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="nikeAirMax" className="brandInput" value="Nike Air Maxx" />
-                    <label for="nikeAirMax"> Nike Air Maxx</label>
+                    <input
+                        type="checkbox"
+                        id="nikeAirMax"
+                        className="brandInput"
+                        value="Nike Air Maxx"
+                    />
+                    <label htmlFor="nikeAirMax"> Nike Air Maxx</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="nikeBlazers" className="brandInput" value="Nike Blazers" />
-                    <label for="nikeBlazers"> Nike Blazers</label>
+                    <input
+                        type="checkbox"
+                        id="nikeBlazers"
+                        className="brandInput"
+                        value="Nike Blazers"
+                    />
+                    <label htmlFor="nikeBlazers"> Nike Blazers</label>
                 </div>
             </div>
         </div>

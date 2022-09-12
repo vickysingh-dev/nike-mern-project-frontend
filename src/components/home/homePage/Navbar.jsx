@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoBagHandleOutline, IoPersonOutline, IoBagHandle, IoPerson } from "react-icons/io5";
 import '../../home_css/homepage/Navbar.css';
 
+import Modal from "../../modals/Modal";
+
 function Navbar() {
+
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const modalProps = {
+        navigateTo : "/signin",
+        modalTitle : "You are not Signed In",
+        modalBody : "Sign In to View Your Cart",
+        cancelBtn : "Maybe Later",
+        confirmBtn : "Sign In"
+    }
+
     return (
         <div className="Navbar-display">
             <div className="brand-logo"></div>
@@ -15,9 +28,11 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbar-cart">
-                <NavLink to={"/signin"} className="sign" onMouseEnter={() => {}}><IoPersonOutline /></NavLink>
-                <NavLink to={"/cart"} className="cart"><IoBagHandleOutline /></NavLink>
+                <NavLink to={"/signin"} className="sign"><IoPersonOutline /></NavLink>
+                <span className="cart" onClick={() => setModalOpen(true)}><IoBagHandleOutline /></span>
             </div>
+
+            { modalOpen && <Modal setOpenModal={setModalOpen} props={ modalProps }/> }
         </div>
     )
 }
