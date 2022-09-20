@@ -1,49 +1,38 @@
 import React, { useState, useEffect } from "react";
 import "../shop_css/ShopGallery.css";
 
-// import Error from "../Error";
-
 import Card from "./Card";
 import Loader from "../Loader";
 
+import { jsonRequest } from "../../utilities";
+
 export default function ShopGallery({ category }) {
-    console.log(category);
     const [items, setItems] = useState([]);
-    // const [category, setCategory] = useState("");
     const [loader, setLoader] = useState(true);
 
-    console.log("shop gallery rerendered");
-
     const fetchItems = async () => {
-        // setLoader(true);
-
-        // setCategory(category);
+        setLoader(true);
 
         try {
-            const res = await fetch(`http://localhost:8000/${category}`, {
+            const { data, res } = await jsonRequest({
+                path: "/load",
                 method: "POST",
-                headers: {
-                    "content-type": "application/json",
-                },
                 body: JSON.stringify({
-                    category: category,
+                    category,
                 }),
+                credentials: false,
             });
 
-            const data = await res.json();
-
-            if (data.status === 422 || !data) {
+            if (res.status === 422 || !data) {
                 console.log("Failed to load the resources!");
             } else {
                 setItems(data);
-                console.log("Item Changed", data);
             }
-
-            setLoader(false);
         } catch (err) {
             console.log(err);
-            setLoader(false);
         }
+
+        setLoader(false);
     };
 
     useEffect(() => {

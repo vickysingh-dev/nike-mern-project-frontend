@@ -51,17 +51,22 @@ export default function SignInPageInput() {
         } else {
             try {
                 setLoader(true);
+                const homePage = "/";
 
-                const res = await fetch("http://localhost:8000/signin", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        email,
-                        password,
-                    }),
-                });
+                const res = await fetch(
+                    `http://localhost:8000/signin?redirectTo=kochikaame`,
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            email,
+                            password,
+                        }),
+                        credentials: "include",
+                    }
+                );
 
                 const data = await res.json();
 
@@ -71,10 +76,21 @@ export default function SignInPageInput() {
                     console.log("Invalid Credentials");
                 } else {
                     setLoader(false);
-                    window.alert("Login Success!");
                     console.log("Login Success");
+                    console.log(data);
 
-                    // navigate("/", { replace: true });
+                    console.log(window.location.search);
+
+                    let redirectTo = new URLSearchParams(
+                        window.location.search
+                    );
+
+                    redirectTo = redirectTo.get("redirectTo");
+                    console.log("The redirect to is for ", redirectTo);
+
+                    if (redirectTo) {
+                        navigate(redirectTo, { replace: true });
+                    }
                 }
             } catch (err) {
                 setModalOpen(true);
