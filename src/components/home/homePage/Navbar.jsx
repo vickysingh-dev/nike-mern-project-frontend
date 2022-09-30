@@ -54,14 +54,14 @@ function Navbar() {
                 <NavLink to={"/signin"} className="sign">
                     <IoPersonOutline />
                 </NavLink>
-                <span className="cart" onClick={() => setModalOpen(true)}>
+                <NavLink to={"/cart"} className="cart">
                     <IoBagHandleOutline />
-                </span>
+                </NavLink>
             </div>
 
-            {modalOpen && (
+            {/* {modalOpen && (
                 <Modal setOpenModal={setModalOpen} props={modalProps} />
-            )}
+            )} */}
         </div>
     );
 }

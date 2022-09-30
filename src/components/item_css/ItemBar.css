@@ -8,6 +8,7 @@
     height: 100%;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -18,6 +19,9 @@
 .itemBar-image img{
     height: 100%;
     width: fit-content
+}
+.itemBar-detail {
+    width: 400px;
 }
 .itemBar-detail h1{
     color: black;
@@ -48,6 +52,9 @@
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
+}
+.itemBar-sizes div.active{
+    background-color: lightgrey;
 }
 .itemBar-sizes div:hover{
     background-color: lightgrey;

@@ -2,7 +2,6 @@
     width: 75%;
     padding: 10px;
     margin: 20px 0;
-    /* border: 1px solid grey; */
     border-radius: 15px;
     box-shadow: 1px 1px 20px 1px;
     display: flex;
@@ -16,7 +15,6 @@
 }
 .cartItemDetails{
     margin: 0 20px;
-    width: 300px;
     color: black;
 }
 .cartItemDetails h3{
