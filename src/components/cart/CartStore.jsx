@@ -33,7 +33,7 @@ const CartStore = ({ props }) => {
     };
 
     useEffect(() => {
-        if (props.length > 0) {
+        if (props.cart.length > 0) {
             fetchData();
         }
     }, [props]);
