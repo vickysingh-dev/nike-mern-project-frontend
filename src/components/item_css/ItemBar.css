@@ -26,6 +26,7 @@
 .itemBar-detail h1{
     color: black;
     font-size: 3em;
+    line-height: 1;
 }
 .itemBar-detail h2{
     color: rgb(30, 137, 203);

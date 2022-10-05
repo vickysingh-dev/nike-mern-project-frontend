@@ -7,7 +7,11 @@ import { jsonRequest } from "../../utilities";
 import Navbar from "../home/homePage/Navbar";
 import ItemBar from "./ItemBar";
 
+import Loader from "../Loader";
+
 const Item = () => {
+    const [loader, setLoader] = useState(false);
+
     const [items, setItems] = useState({
         name: "",
         category: "",
@@ -21,6 +25,7 @@ const Item = () => {
     const _id = searchParam.get("_id");
 
     const fetchData = async () => {
+        setLoader(true);
         try {
             const { data, res } = await jsonRequest({
                 path: "/load",
@@ -39,6 +44,7 @@ const Item = () => {
         } catch (err) {
             console.log(err);
         }
+        setLoader(false);
     };
 
     useEffect(() => {
@@ -47,6 +53,7 @@ const Item = () => {
 
     return (
         <div className="item">
+            {loader && <Loader />}
             <Navbar />
             <ItemBar items={items} />
         </div>

@@ -23,13 +23,7 @@ export default function SignInPageInput() {
     const [loader, setLoader] = useState(false); // set Loader
 
     const [modalOpen, setModalOpen] = useState(false); // set state for Modal
-
-    const modalProps = {
-        navigateTo: "/",
-        modalTitle: "Sign In Successfull!",
-        modalBody: "Welcome To the World of Nike",
-        modalFooter: "Go Shopping",
-    };
+    const [modalProps, setModalProps] = useState({});
 
     let name, value;
 
@@ -47,56 +41,52 @@ export default function SignInPageInput() {
         const { email, password } = user;
 
         if (!email || !password) {
-            window.alert("Incomplete Details Filled");
+            setModalProps({
+                modalTitle: "Incomplete Credentials",
+                modalBody: "Your Field is Empty",
+                modalFooter: "Fill Details",
+            });
+            setModalOpen(true);
         } else {
+            setLoader(true);
             try {
-                setLoader(true);
                 const homePage = "/";
 
-                const res = await fetch(
-                    `http://localhost:8000/signin?redirectTo=kochikaame`,
-                    {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            email,
-                            password,
-                        }),
-                        credentials: "include",
-                    }
-                );
+                const res = await fetch(`http://localhost:8000/signin`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password,
+                    }),
+                    credentials: "include",
+                });
 
                 const data = await res.json();
 
-                if (data.status === 422 || !data) {
-                    setLoader(false);
-                    window.alert("Invalid Credentials");
-                    console.log("Invalid Credentials");
+                if (res.status === 401) {
+                    setModalProps({
+                        navigateTo: "/signup",
+                        modalTitle: "Invalid Credentials",
+                        modalBody: "If you are Not Registered, Sign Up.",
+                        modalFooter: "Sign Up",
+                    });
                 } else {
-                    setLoader(false);
-                    console.log("Login Success");
-                    console.log(data);
-
-                    console.log(window.location.search);
-
-                    let redirectTo = new URLSearchParams(
-                        window.location.search
-                    );
-
-                    redirectTo = redirectTo.get("redirectTo");
-                    console.log("The redirect to is for ", redirectTo);
-
-                    if (redirectTo) {
-                        navigate(redirectTo, { replace: true });
-                    }
+                    setModalProps({
+                        navigateTo: "/",
+                        modalTitle: "Sign In Successfull!",
+                        modalBody: "Welcome To the World of Nike",
+                        modalFooter: "Go Shopping",
+                    });
                 }
-            } catch (err) {
                 setModalOpen(true);
+            } catch (err) {
                 console.log(err);
-                setLoader(false);
             }
+            setUser({ email: "", password: "" });
+            setLoader(false);
         }
     };
 

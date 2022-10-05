@@ -29,6 +29,7 @@
     outline: 2px solid black;
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 .userLogOut .logOutBtn{
     position: relative;

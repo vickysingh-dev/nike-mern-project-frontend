@@ -10,6 +10,7 @@ import Item from "./components/item/Item";
 import CartPage from "./components/cart/CartPage";
 import Error from "./components/Error";
 import { useEffect } from "react";
+import Checkout from "./components/cart/Checkout";
 
 function App() {
     const location = useLocation();
@@ -19,7 +20,6 @@ function App() {
     }, [location]);
 
     return (
-        // <BrowserRouter>
         <Routes>
             <Route exact path="/" element={<FirstPage />} />
 
@@ -42,6 +42,10 @@ function App() {
 
             <Route exact path="/cart" element={<CartPage />} />
 
+            {/* checkout */}
+
+            <Route exact path="/checkout" element={<Checkout />} />
+
             {/* item  */}
 
             <Route exact path="/item" element={<Item />} />
@@ -50,7 +54,6 @@ function App() {
 
             <Route exact path="/error" element={<Error />} />
         </Routes>
-        // </BrowserRouter>
     );
 }
 

@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./../modals_css/Modal.css";
 
-const Modal = ({ setOpenModal, props }) => {
-
+const Modal = ({ setOpenModal, props, extraFunction = false }) => {
     const navigate = useNavigate();
 
     return (
@@ -12,7 +11,17 @@ const Modal = ({ setOpenModal, props }) => {
             <div className="modalBackground">
                 <div className="modalContainer">
                     <div className="titleCloseBtn">
-                        <button onClick={() => setOpenModal(false)}>
+                        <button
+                            onClick={() => {
+                                setOpenModal(false);
+                                {
+                                    !extraFunction &&
+                                        navigate(`${props.navigateOnCancel}`, {
+                                            replace: true,
+                                        });
+                                }
+                            }}
+                        >
                             X
                         </button>
                     </div>
@@ -23,17 +32,42 @@ const Modal = ({ setOpenModal, props }) => {
                         <p>{props.modalBody}</p>
                     </div>
                     <div className="Modalfooter">
-                        <button onClick={() => { setOpenModal(false) }} id="cancelBtn">
+                        <button
+                            onClick={() => {
+                                {
+                                    extraFunction && extraFunction();
+                                }
+                                setOpenModal(false);
+                                {
+                                    !extraFunction &&
+                                        navigate(`${props.navigateOnCancel}`, {
+                                            replace: true,
+                                        });
+                                }
+                            }}
+                            id="cancelBtn"
+                        >
                             {props.cancelBtn}
                         </button>
-                        <button onClick={() => {navigate(`${ props.navigateTo }`)} } id="confirmBtn">
+                        <button
+                            onClick={() => {
+                                setOpenModal(false);
+                                {
+                                    !extraFunction &&
+                                        navigate(`${props.navigateOnConfirm}`, {
+                                            replace: true,
+                                        });
+                                }
+                            }}
+                            id="confirmBtn"
+                        >
                             {props.confirmBtn}
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Modal;

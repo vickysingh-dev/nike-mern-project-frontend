@@ -1,14 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../shop_css/ShopFilter.css";
 
-export default function ShopFilter() {
+export default function ShopFilter({ items }) {
+    const filterList = items;
+    console.log(filterList);
+    const allSizes = ["XS", "S", "M", "L", "XL", "XXL"];
+    let sizeList = [];
+    if (filterList.length > 0) {
+        sizeList = filterList[0].size;
+        console.log(sizeList);
+    }
+
+    useEffect(() => {}, [items]);
+
     return (
         <div className="shopFilter">
             <h1 className="filterHeadingMain">Filter</h1>
             <div className="hr"></div>
             <h2>Size</h2>
             <div className="filterSize">
-                <div className="sizeTokens" value="xs">
+                {allSizes.map((ele, index) => {
+                    if (sizeList.includes(ele)) {
+                        return (
+                            <div
+                                className="sizeTokens-active"
+                                key={index}
+                                value={ele}
+                            >
+                                {ele}
+                            </div>
+                        );
+                    } else {
+                        return (
+                            <div
+                                className="sizeTokensInactive"
+                                key={index}
+                                value={ele}
+                            >
+                                {ele}
+                            </div>
+                        );
+                    }
+                })}
+                {/* <div className="sizeTokens" value="xs">
                     XS
                 </div>
                 <div className="sizeTokens" value="s">
@@ -25,7 +59,7 @@ export default function ShopFilter() {
                 </div>
                 <div className="sizeTokens" value="xxl">
                     XXL
-                </div>
+                </div> */}
             </div>
             <div className="hr"></div>
             <h2>Brand</h2>

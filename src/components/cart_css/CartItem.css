@@ -14,11 +14,15 @@
     width: auto;
 }
 .cartItemDetails{
+    width: 200px;
     margin: 0 20px;
     color: black;
 }
-.cartItemDetails h3{
+/* .cartItemDetails h3{
     text-align: right;
+} */
+.itemSizeValue{
+    float: right;
 }
 .cartItemCounter{
     display: flex;

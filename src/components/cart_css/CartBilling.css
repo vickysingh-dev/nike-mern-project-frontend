@@ -27,15 +27,18 @@
 .cartBillingList{
     display: flex;
     justify-content: space-between;
+    color: black;
 }
 .cartBillingGst{
     display: flex;
     justify-content: space-between;
+    margin-top: 10px;
 }
 .cartBillingTotal{
     display: flex;
     justify-content: space-between;
     color: black;
+    margin-top: 10px;
 }
 .checkOut{
     margin: 20px 0;
