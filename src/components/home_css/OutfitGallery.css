@@ -32,6 +32,10 @@
     border-radius: 25px;
     padding: 10px 20px;
     text-decoration: none;
+    color: black;
     background-color: white;
     font-weight: 700;
+}
+.menLink:hover , .womenLink:hover , .kidLink:hover{
+    background-color: lightgrey;
 }

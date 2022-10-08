@@ -1,25 +1,51 @@
-import React from "react";
-import '../shop_css/ShopGallery.css';
+import React, { useState, useEffect } from "react";
+import "../shop_css/ShopGallery.css";
 
 import Card from "./Card";
+import Loader from "../Loader";
 
-export default function ShopGallery()  {
+import { jsonRequest } from "../../utilities";
+
+export default function ShopGallery({ category, items, setItems }) {
+    // const [items, setItems] = useState([]);
+    const [loader, setLoader] = useState(false);
+
+    const fetchItems = async () => {
+        setLoader(true);
+
+        try {
+            const { data, res } = await jsonRequest({
+                path: "/load",
+                method: "POST",
+                body: JSON.stringify({
+                    category,
+                }),
+                credentials: false,
+            });
+
+            if (res.status === 422 || !data) {
+                console.log("Failed to load the resources!");
+            } else {
+                setItems(data);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+
+        setLoader(false);
+    };
+
+    useEffect(() => {
+        fetchItems();
+    }, [category]);
+
     return (
         <div className="shopGallery">
-            <div className="cardParent">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-            </div>
+            {loader && <Loader />}
+
+            {items.map(function (item, index) {
+                return <Card key={index} item={item} />;
+            })}
         </div>
     );
 }
