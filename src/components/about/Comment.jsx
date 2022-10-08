@@ -3,10 +3,15 @@ import "./../about_css/Comment.css";
 
 import Loader from "../Loader";
 
+import ModalAlert from "../modals/ModalAlert";
+
 import nikeLogo from "./../../assets/nike-logo-comment.jpg";
 
 const Comment = () => {
     const [loader, setLoader] = useState(false);
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalProps, setModalProps] = useState({});
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -14,7 +19,12 @@ const Comment = () => {
 
     const sendComment = async () => {
         if (!name || !email || !comment) {
-            window.alert("Fill all the blanks to submit.");
+            setModalProps({
+                modalTitle: "Required Fields Empty",
+                modalBody: "You need to fill all of the Fields, to Submit",
+                modalFooter: "Okay",
+            });
+            setModalOpen(true);
             return;
         }
 
@@ -33,22 +43,35 @@ const Comment = () => {
 
         const data = await res.json();
 
-        if (data.status === 422 || !data) {
-            window.alert("Invalid Entry");
-            console.log("Invalid Entry");
+        if (res.status === 422) {
+            setModalProps({
+                modalTitle: "Cannot Send Email",
+                modalBody: "The Email Provided is invalid, please check again.",
+                modalFooter: "Okay",
+            });
+            setModalOpen(true);
         } else {
-            window.alert("Comment Uploaded");
-
-            setName("");
-            setEmail("");
-            setComment("");
+            setModalProps({
+                modalTitle: "Comment Uploaded Successfully",
+                modalBody:
+                    "Thank you for sharing your concern, we will reply to your mail soon",
+                modalFooter: "Okay",
+            });
+            setModalOpen(true);
         }
+        setName("");
+        setEmail("");
+        setComment("");
         setLoader(false);
     };
 
     return (
         <div className="comment">
             {loader && <Loader />}
+
+            {modalOpen && (
+                <ModalAlert setOpenModal={setModalOpen} props={modalProps} />
+            )}
 
             <div className="comment-parent">
                 <div className="comment-heading">
