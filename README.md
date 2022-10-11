@@ -74,6 +74,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Features to work on
 
-->  Forgot Password, for the User.
 ->  Sign In with Google feature.
 ->  Create an Admin Portal to update and monitor website.
+->  Working Filter Feature.
