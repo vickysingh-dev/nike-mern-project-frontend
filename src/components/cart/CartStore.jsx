@@ -1,39 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import "./../cart_css/CartStore.css";
+
+import emptyCart from "./../../assets/emptyCart.webp";
 
 import CartItems from "./CartItems";
 import CartBilling from "./CartBilling";
 
 const CartStore = ({ cartDetails, setCartDetails }) => {
-    const updateItem = async (_id, quantity) => {
+    const updateItem = async (_id, quantity, size) => {
         const res = await fetch("http://localhost:8000/updateItem", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify({ item_id: _id, quantity: quantity }),
+            body: JSON.stringify({
+                item_id: _id,
+                quantity: quantity,
+                size: size,
+            }),
             credentials: "include",
         });
         const data = await res.json();
         return data;
     };
 
-    const handleQuantityChange = async (_id, quantity) => {
+    const handleQuantityChange = async (_id, quantity, size) => {
         setCartDetails((prevData) => ({
             ...prevData,
             items: prevData.items.map((item) => {
-                if (item._id == _id) {
+                if (item._id == _id && item.size == size) {
                     item.isLoading = true;
                 }
                 return item;
             }),
         }));
-        const updatedItem = await updateItem(_id, quantity);
+        const updatedItem = await updateItem(_id, quantity, size);
         setCartDetails((prevData) => ({
             ...prevData,
             items: prevData.items.map((item) => {
-                if (item._id == _id) {
+                if (item._id == _id && item.size == size) {
                     item.quantity = quantity;
                     item.isLoading = false;
                 }
@@ -54,20 +60,22 @@ const CartStore = ({ cartDetails, setCartDetails }) => {
 
     return (
         <>
-            {cartDetails ? (
+            {cartDetails?.items.length > 0 ? (
                 <div className="cartStore">
                     <CartItems
                         handleQuantityChange={handleQuantityChange}
-                        items={
-                            cartDetails.items && cartDetails.items.length > 0
-                                ? cartDetails.items
-                                : []
-                        }
+                        cartDetails={cartDetails}
+                        setCartDetails={setCartDetails}
                     />
                     <CartBilling items={cartDetails} />
                 </div>
             ) : (
-                <div></div>
+                <div>
+                    <div className="emptyCartPage">
+                        <img src={emptyCart}></img>
+                        <h1>Your Cart Is Empty!</h1>
+                    </div>
+                </div>
             )}
         </>
     );

@@ -108,7 +108,7 @@ const Comment = () => {
                             <h2>Your Query</h2>
                             <textarea
                                 name="comment"
-                                placeholder="Your Comment here"
+                                placeholder="Your Queries here"
                                 rows={4}
                                 value={comment}
                                 onChange={(e) => setComment(e.target.value)}

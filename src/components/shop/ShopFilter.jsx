@@ -7,12 +7,10 @@ export default function ShopFilter({ items }) {
     const [loader, setLoader] = useState(false);
 
     const filterList = items;
-    console.log(filterList);
     const allSizes = ["XS", "S", "M", "L", "XL", "XXL"];
     let sizeList = [];
     if (filterList.length > 0) {
         sizeList = filterList[0].size;
-        console.log(sizeList);
     }
 
     const delay = function (ms) {

@@ -31,6 +31,14 @@ const ModalAlert = ({ setOpenModal, props }) => {
                                             replace: "true",
                                         });
                                 }
+                                {
+                                    props.action &&
+                                        props.action(
+                                            props.creds._id,
+                                            props.creds.quantity,
+                                            props.creds.size
+                                        );
+                                }
                             }}
                             id="okBtn"
                         >

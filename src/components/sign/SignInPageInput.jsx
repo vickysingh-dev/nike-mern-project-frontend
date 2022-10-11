@@ -127,7 +127,7 @@ export default function SignInPageInput() {
                     ></input>
                 </div>
                 <div className="forgotPassword">
-                    <NavLink to="#" className="forgotPassword">
+                    <NavLink to="/forgotPassword" className="forgotPassword">
                         Forgot Password
                     </NavLink>
                 </div>
