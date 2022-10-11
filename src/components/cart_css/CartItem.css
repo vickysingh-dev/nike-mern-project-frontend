@@ -1,6 +1,7 @@
 .cartItem{
     width: 75%;
-    padding: 10px;
+    padding: 30px;
+    position: relative;
     margin: 20px 0;
     border-radius: 15px;
     box-shadow: 1px 1px 20px 1px;
@@ -9,9 +10,25 @@
     justify-content: space-around;
     align-items: center;
 }
+.cartItem .wrongButton{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    line-height: 1;
+    font-weight: 700;
+    transition: 0.5s ease;
+}
+.cartItem .wrongButton:hover{
+    color: black;
+    transform: scale(1.25);
+}
 .cartItem  img{
     height: 200px;
     width: auto;
+    cursor: pointer;
 }
 .cartItemDetails{
     width: 200px;

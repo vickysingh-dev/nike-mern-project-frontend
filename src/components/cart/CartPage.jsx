@@ -29,7 +29,6 @@ const CartPage = function () {
             credentials: "include",
         });
         const data = await res.json();
-        console.log("The data sent to cart Page is ", data);
         if (res.status === 200) {
             setCartDetails((prev) => ({
                 items: data.items.map((item) => {
@@ -39,7 +38,6 @@ const CartPage = function () {
                 userName: data.userName,
             }));
         } else if (res.status === 400) {
-            console.log(data);
             setModalProps({
                 navigateOnConfirm: "/signin",
                 navigateOnCancel: "/",
@@ -75,7 +73,7 @@ const CartPage = function () {
                             props={cartDetails ? cartDetails.userName : ""}
                         />
                         <CartStore
-                            cartDetails={cartDetails}
+                            cartDetails={cartDetails ? cartDetails : {}}
                             setCartDetails={setCartDetails}
                         />
                     </>

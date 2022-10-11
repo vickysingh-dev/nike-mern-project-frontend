@@ -28,11 +28,30 @@
     display: flex;
     justify-content: space-between;
     color: black;
+    margin: 10px 0;
+}
+.cartBillingList h4{
+    line-height: 1;
+    margin: 5px 0;
+}
+.cartBillingList h4 span{
+    color: grey;
+    font-size: 0.85em;
+}
+.cartBillingItemsTotal{
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    
 }
 .cartBillingGst{
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+}
+.cartBillingGst h5{
+    font-size: 1em;
+    color: black;
 }
 .cartBillingTotal{
     display: flex;

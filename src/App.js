@@ -11,6 +11,7 @@ import CartPage from "./components/cart/CartPage";
 import Error from "./components/Error";
 import { useEffect } from "react";
 import Checkout from "./components/cart/Checkout";
+import UpdatePassword from "./components/sign/updatePassword";
 
 function App() {
     const location = useLocation();
@@ -37,6 +38,10 @@ function App() {
 
             <Route exact path="/signin" element={<SignInPage />} />
             <Route exact path="/signup" element={<SignUpPage />} />
+
+            {/* forgot password */}
+
+            <Route exact path="/forgotPassword" element={<UpdatePassword />} />
 
             {/* cart */}
 

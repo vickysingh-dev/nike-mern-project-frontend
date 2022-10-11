@@ -13,8 +13,22 @@ const CartBilling = ({ items }) => {
     items.items.forEach((ele) => {
         orderTotal += ele.price * ele.quantity;
     });
-    orderTotal = orderTotal + 0.18 * orderTotal;
-    orderTotal = orderTotal.toLocaleString("en-IN", {
+
+    let orderTotalString = orderTotal.toLocaleString("en-IN", {
+        maximumFractionDigits: 0,
+        style: "currency",
+        currency: "INR",
+    });
+
+    let gst = 0.18 * orderTotal;
+    gst = gst.toLocaleString("en-IN", {
+        maximumFractionDigits: 0,
+        style: "currency",
+        currency: "INR",
+    });
+
+    let orderTotalGst = orderTotal + 0.18 * orderTotal;
+    orderTotalGst = orderTotalGst.toLocaleString("en-IN", {
         maximumFractionDigits: 0,
         style: "currency",
         currency: "INR",
@@ -60,20 +74,27 @@ const CartBilling = ({ items }) => {
                         return (
                             <div className="cartBillingList" key={index}>
                                 <h4>
-                                    {ele.name} ({ele.quantity})
+                                    {ele.name}
+                                    <br></br> <span>(size {ele.size})</span> (
+                                    {ele.quantity})
                                 </h4>
                                 <h4>{itemTotalPrice}</h4>
                             </div>
                         );
                     })}
+                    <hr></hr>
+                    <div className="cartBillingItemsTotal">
+                        <h4>Items Total</h4>
+                        <h4>{orderTotalString}</h4>
+                    </div>
                     <div className="cartBillingGst">
-                        <h4>GST applicable</h4>
-                        <h5>+18% of total</h5>
+                        <h5>18% GST applicable</h5>
+                        <h5>{gst}</h5>
                     </div>
                     <hr></hr>
                     <div className="cartBillingTotal">
                         <h4>Order Total</h4>
-                        <h3>{orderTotal}</h3>
+                        <h3>{orderTotalGst}</h3>
                     </div>
                     <button className="checkOut" onClick={checkOut}>
                         Proceed To CheckOut

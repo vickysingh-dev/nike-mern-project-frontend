@@ -1,12 +1,24 @@
 .cartItems{
     height: 100%;
     width: 60vw;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 .emptyCartParent{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.cartItems .cartClearButton{
+  text-align: right;
+  font-size: 1.25em;
+  color: black;
+}
+.cartItems .cartClearButton button{
+  margin: 0 10px;
+  background-color: black;
+  cursor: pointer;
+  font-size: 1.15em;
 }
 
 .cartItems h1{

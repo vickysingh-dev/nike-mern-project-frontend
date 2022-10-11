@@ -45,7 +45,14 @@ export default function SignUpPageInput() {
             setModalProps({
                 modalTitle: "Incomplete Credentials",
                 modalBody: `Your field is empty!`,
-                modalFooter: "Jump Back",
+                modalFooter: "Fill Details",
+            });
+            setModalOpen(true);
+        } else if (password.length < 8) {
+            setModalProps({
+                modalTitle: "Password Not Safe",
+                modalBody: `Length of your password should be atleast 8 characters`,
+                modalFooter: "Fill Again",
             });
             setModalOpen(true);
         } else {
@@ -65,8 +72,6 @@ export default function SignUpPageInput() {
                 });
 
                 const data = await res.json();
-                console.log("response => ", res);
-                console.log("data => ", data);
 
                 if (res.status === 401) {
                     setModalProps({
