@@ -59,17 +59,20 @@ export default function SignUpPageInput() {
             setLoader(true);
 
             try {
-                const res = await fetch("http://localhost:8000/signup", {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        name,
-                        email,
-                        password,
-                    }),
-                });
+                const res = await fetch(
+                    "https://nike-sample.adaptable.app/signup",
+                    {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            name,
+                            email,
+                            password,
+                        }),
+                    }
+                );
 
                 const data = await res.json();
 

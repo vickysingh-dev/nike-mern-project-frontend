@@ -17,7 +17,7 @@ const CartItems = ({ cartDetails, setCartDetails, handleQuantityChange }) => {
     const [modalProps, setModalProps] = useState({});
 
     const clearCartItems = async () => {
-        const res = await fetch("http://localhost:8000/clearCart", {
+        const res = await fetch("https://nike-sample.adaptable.app/clearCart", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

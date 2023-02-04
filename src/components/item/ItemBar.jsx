@@ -71,7 +71,7 @@ const ItemBar = ({ items }) => {
             return;
         }
         setLoader(true);
-        const res = await fetch("http://localhost:8000/addItem", {
+        const res = await fetch("https://nike-sample.adaptable.app/addItem", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

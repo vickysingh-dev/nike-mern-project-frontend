@@ -29,7 +29,7 @@ const Comment = () => {
         }
 
         setLoader(true);
-        const res = await fetch("http://localhost:8000/comment", {
+        const res = await fetch("https://nike-sample.adaptable.app/comment", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
