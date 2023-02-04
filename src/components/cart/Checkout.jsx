@@ -10,7 +10,7 @@ const Checkout = () => {
 
     const fetchData = async () => {
         setLoader(true);
-        const res = await fetch("http://localhost:8000/checkout", {
+        const res = await fetch("https://nike-sample.adaptable.app/checkout", {
             method: "GET",
             headers: {
                 "content-type": "application/json",

@@ -21,7 +21,7 @@ const CartPage = function () {
 
     const fetchData = async () => {
         setLoader(true);
-        const res = await fetch("http://localhost:8000/cart", {
+        const res = await fetch("https://nike-sample.adaptable.app/cart", {
             method: "GET",
             headers: {
                 "content-type": "application/json",

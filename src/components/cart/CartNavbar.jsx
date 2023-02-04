@@ -27,7 +27,7 @@ const CartNavbar = ({ props }) => {
     };
 
     const logOut = async () => {
-        const res = await fetch("http://localhost:8000/signout", {
+        const res = await fetch("https://nike-sample.adaptable.app/signout", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

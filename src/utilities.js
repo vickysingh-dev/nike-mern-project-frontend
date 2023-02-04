@@ -1,7 +1,7 @@
 // json request to fetch data or permission.
 export const jsonRequest = async ({
     path,
-    baseUrl = "http://localhost:8000",
+    baseUrl = "https://nike-sample.adaptable.app/",
     method,
     headers = {},
     body,

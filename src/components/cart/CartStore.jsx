@@ -9,18 +9,21 @@ import CartBilling from "./CartBilling";
 
 const CartStore = ({ cartDetails, setCartDetails }) => {
     const updateItem = async (_id, quantity, size) => {
-        const res = await fetch("http://localhost:8000/updateItem", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify({
-                item_id: _id,
-                quantity: quantity,
-                size: size,
-            }),
-            credentials: "include",
-        });
+        const res = await fetch(
+            "https://nike-sample.adaptable.app/updateItem",
+            {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    item_id: _id,
+                    quantity: quantity,
+                    size: size,
+                }),
+                credentials: "include",
+            }
+        );
         const data = await res.json();
         return data;
     };

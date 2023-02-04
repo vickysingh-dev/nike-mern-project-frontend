@@ -70,12 +70,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-
-
-### Features to work on
-
-->  Sign In with Google feature.
-->  Create an Admin Portal to update and monitor website. Primary to control users behaviour.
-->  User Page to check check past orders, track Movement and save shipping address.
-->  Working Filter Feature.
-

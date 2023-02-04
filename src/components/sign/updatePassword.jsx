@@ -26,7 +26,7 @@ export default function UpdatePassword() {
 
     const fetchData = async (url, bodyObj) => {
         setLoader(true);
-        const res = await fetch(`http://localhost:8000/${url}`, {
+        const res = await fetch(`https://nike-sample.adaptable.app/${url}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

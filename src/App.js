@@ -1,5 +1,6 @@
 import "./App.css";
 
+import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import FirstPage from "./components/FirstPage";
@@ -9,9 +10,9 @@ import SignInPage from "./components/sign/SignInPage";
 import Item from "./components/item/Item";
 import CartPage from "./components/cart/CartPage";
 import Error from "./components/Error";
-import { useEffect } from "react";
 import Checkout from "./components/cart/Checkout";
 import UpdatePassword from "./components/sign/updatePassword";
+import UserPage from "./components/user/UserPage";
 
 function App() {
     const location = useLocation();
@@ -54,6 +55,10 @@ function App() {
             {/* item  */}
 
             <Route exact path="/item" element={<Item />} />
+
+            {/* user page  */}
+
+            <Route exact path="/user" element={<UserPage />} />
 
             {/* error  */}
 
