@@ -1,0 +1,27 @@
+.userInfo {
+    width: 30%;
+    height: 100%;
+    padding: 20px;
+}
+.userInfo-container{
+    width: 100%;
+    height: 350px;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 1px 1px 20px 1px;
+}
+.userInfo-container .userInfo-image{
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    border-radius: 50%;
+}
+.userInfo-container .userInfoImage-icon{
+    width: 100%;
+    height: 100%;
+}
+.userInfo-details{
+    margin: 10px 0;
+}

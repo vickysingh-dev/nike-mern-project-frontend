@@ -1,9 +1,13 @@
 .cartNavbar{
     height: 70px;
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-bottom: 1px solid grey;
+    background-color: white;
+    z-index: 1000;
 }
 .brand-logo{
     background-image: url('/public/images/nike-logo.jpg');
