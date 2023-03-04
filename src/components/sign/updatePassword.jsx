@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import "./../sign_css/updatePassword.css";
 
+import { jsonRequest } from "../../utilities";
+
 import logo from "./../../assets/nike-logo-comment.jpg";
 
 import Loader from "../Loader";
@@ -26,14 +28,20 @@ export default function UpdatePassword() {
 
     const fetchData = async (url, bodyObj) => {
         setLoader(true);
-        const res = await fetch(`https://nike-sample.adaptable.app/${url}`, {
+        // const res = await fetch(`https://nike-sample.adaptable.app/${url}`, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(bodyObj),
+        // });
+        // const data = await res.json();
+        const { data, res } = await jsonRequest({
+            path: `/${url}`,
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
             body: JSON.stringify(bodyObj),
+            credentials: "include",
         });
-        const data = await res.json();
         setLoader(false);
         return { res, data };
     };

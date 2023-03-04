@@ -2,6 +2,8 @@ import React from "react";
 
 import "./../cart_css/CartStore.css";
 
+import { jsonRequest } from "../../utilities";
+
 import emptyCart from "./../../assets/emptyCart.webp";
 
 import CartItems from "./CartItems";
@@ -9,22 +11,27 @@ import CartBilling from "./CartBilling";
 
 const CartStore = ({ cartDetails, setCartDetails }) => {
     const updateItem = async (_id, quantity, size) => {
-        const res = await fetch(
-            "https://nike-sample.adaptable.app/updateItem",
-            {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify({
-                    item_id: _id,
-                    quantity: quantity,
-                    size: size,
-                }),
-                credentials: "include",
-            }
-        );
-        const data = await res.json();
+        // const res = await fetch(
+        //     "https://nike-sample.adaptable.app/updateItem",
+        //     {
+        //         method: "POST",
+        //         headers: {
+        //             "content-type": "application/json",
+        //         },
+        //         body: JSON.stringify({
+        //             item_id: _id,
+        //             quantity: quantity,
+        //             size: size,
+        //         }),
+        //         credentials: "include",
+        //     }
+        // );
+        // const data = await res.json();
+        const { data, res } = await jsonRequest({
+            path: "/updateItem",
+            method: "POST",
+            credentials: "include",
+        });
         return data;
     };
 

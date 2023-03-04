@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./../about_css/Comment.css";
 
+import { jsonRequest } from "../../utilities";
+
 import Loader from "../Loader";
 
 import ModalAlert from "../modals/ModalAlert";
@@ -29,19 +31,28 @@ const Comment = () => {
         }
 
         setLoader(true);
-        const res = await fetch("https://nike-sample.adaptable.app/comment", {
+        // const res = await fetch("https://nike-sample.adaptable.app/comment", {
+        //     method: "POST",
+        //     headers: {
+        //         "content-type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         name,
+        //         email,
+        //         comment,
+        //     }),
+        // });
+
+        // const data = await res.json();
+        const { data, res } = await jsonRequest({
+            path: "/comment",
             method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
             body: JSON.stringify({
                 name,
                 email,
                 comment,
             }),
         });
-
-        const data = await res.json();
 
         if (res.status === 422) {
             setModalProps({

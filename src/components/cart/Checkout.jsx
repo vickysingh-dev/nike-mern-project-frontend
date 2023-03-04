@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { jsonRequest } from "../../utilities";
+
 import Loader from "../Loader";
 
 const Checkout = () => {
@@ -10,14 +12,19 @@ const Checkout = () => {
 
     const fetchData = async () => {
         setLoader(true);
-        const res = await fetch("https://nike-sample.adaptable.app/checkout", {
+        // const res = await fetch("https://nike-sample.adaptable.app/checkout", {
+        //     method: "GET",
+        //     headers: {
+        //         "content-type": "application/json",
+        //     },
+        //     credentials: "include",
+        // });
+        // const data = await res.json();
+        const { data, res } = await jsonRequest({
+            path: "/checkout",
             method: "GET",
-            headers: {
-                "content-type": "application/json",
-            },
             credentials: "include",
         });
-        const data = await res.json();
         if (res.status === 200) {
             console.log(data);
             navigate("/", { replace: true });

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { IoLogOutOutline } from "react-icons/io5";
 
 import Modal from "../modals/Modal";
+import { jsonRequest } from "../../utilities";
 
 const CartNavbar = ({ props }) => {
     const navigate = useNavigate();
@@ -27,14 +28,19 @@ const CartNavbar = ({ props }) => {
     };
 
     const logOut = async () => {
-        const res = await fetch("https://nike-sample.adaptable.app/signout", {
+        // const res = await fetch("https://nike-sample.adaptable.app/signout", {
+        //     method: "GET",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     credentials: "include",
+        // });
+        // const data = await res.json();
+        const { data, res } = await jsonRequest({
+            path: "/signout",
             method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
             credentials: "include",
         });
-        const data = await res.json();
         if (data.cookieCleared) {
             navigate("/", { replace: true });
         }

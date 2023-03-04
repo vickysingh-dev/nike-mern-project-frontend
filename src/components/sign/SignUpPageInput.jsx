@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../sign_css/SignUpPageInput.css";
 
+import { jsonRequest } from "../../utilities";
+
 import logo from "./../../assets/nike-logo-comment.jpg";
 
 import Loader from "../Loader";
@@ -59,22 +61,32 @@ export default function SignUpPageInput() {
             setLoader(true);
 
             try {
-                const res = await fetch(
-                    "https://nike-sample.adaptable.app/signup",
-                    {
-                        method: "POST",
-                        headers: {
-                            "content-type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            name,
-                            email,
-                            password,
-                        }),
-                    }
-                );
+                // const res = await fetch(
+                //     "https://nike-sample.adaptable.app/signup",
+                //     {
+                //         method: "POST",
+                //         headers: {
+                //             "content-type": "application/json",
+                //         },
+                //         body: JSON.stringify({
+                //             name,
+                //             email,
+                //             password,
+                //         }),
+                //     }
+                // );
 
-                const data = await res.json();
+                // const data = await res.json();
+
+                const { data, res } = await jsonRequest({
+                    path: "/signup",
+                    method: "POST",
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        password,
+                    }),
+                });
 
                 if (res.status === 401) {
                     setModalProps({

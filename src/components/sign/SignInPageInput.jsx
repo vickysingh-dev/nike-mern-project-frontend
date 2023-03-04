@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import "../sign_css/SignInPageInput.css";
 
+import { jsonRequest } from "../../utilities";
+
 import Loader from "../Loader";
 
 import ModalAlert from "../modals/ModalAlert";
@@ -52,22 +54,34 @@ export default function SignInPageInput() {
             try {
                 const homePage = "/";
 
-                const res = await fetch(
-                    `https://nike-sample.adaptable.app/signin`,
-                    {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            email,
-                            password,
-                        }),
-                        credentials: "include",
-                    }
-                );
+                // const res = await fetch(
+                //     `https://nike-sample.adaptable.app/signin`,
+                //     {
+                //         method: "POST",
+                //         headers: {
+                //             "Content-Type": "application/json",
+                //         },
+                //         body: JSON.stringify({
+                //             email,
+                //             password,
+                //         }),
+                //         credentials: "include",
+                //     }
+                // );
 
-                const data = await res.json();
+                // const data = await res.json();
+
+                const { data, res } = await jsonRequest({
+                    path: "/signin",
+                    method: "POST",
+                    body: JSON.stringify({
+                        email,
+                        password,
+                    }),
+                    credentials: "include",
+                });
+
+                console.log(data);
 
                 if (res.status === 401) {
                     setModalProps({

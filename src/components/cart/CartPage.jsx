@@ -8,6 +8,7 @@ import CartStore from "./CartStore";
 
 import Loader from "../Loader";
 import Modal from "../modals/Modal";
+import { jsonRequest } from "../../utilities";
 
 const CartPage = function () {
     const navigate = useNavigate();
@@ -21,14 +22,19 @@ const CartPage = function () {
 
     const fetchData = async () => {
         setLoader(true);
-        const res = await fetch("https://nike-sample.adaptable.app/cart", {
+        // const res = await fetch("https://nike-sample.adaptable.app/cart", {
+        //     method: "GET",
+        //     headers: {
+        //         "content-type": "application/json",
+        //     },
+        //     credentials: "include",
+        // });
+        // const data = await res.json();
+        const { data, res } = await jsonRequest({
+            path: "/cart",
             method: "GET",
-            headers: {
-                "content-type": "application/json",
-            },
             credentials: "include",
         });
-        const data = await res.json();
         if (res.status === 200) {
             setCartDetails((prev) => ({
                 items: data.items.map((item) => {

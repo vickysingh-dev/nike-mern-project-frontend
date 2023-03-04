@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import "./../item_css/ItemBar.css";
 
+import { jsonRequest } from "../../utilities";
+
 import { IoHeartOutline } from "react-icons/io5";
 import { useRef } from "react";
 
@@ -71,18 +73,23 @@ const ItemBar = ({ items }) => {
             return;
         }
         setLoader(true);
-        const res = await fetch("https://nike-sample.adaptable.app/addItem", {
+        // const res = await fetch("https://nike-sample.adaptable.app/addItem", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         item_id: product._id,
+        //         size: itemSize.current,
+        //     }),
+        //     credentials: "include",
+        // });
+        // const data = await res.json();
+        const { data, res } = await jsonRequest({
+            path: "/addItem",
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                item_id: product._id,
-                size: itemSize.current,
-            }),
             credentials: "include",
         });
-        const data = await res.json();
         if (res.status === 201) {
             setModalProps({
                 modalTitle: "Item Already in Cart!",

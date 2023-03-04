@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import "./../cart_css/CartItems.css";
 
+import { jsonRequest } from "../../utilities";
+
 import { IoTrashSharp } from "react-icons/io5";
 
 import CartItem from "./CartItem";
@@ -17,14 +19,19 @@ const CartItems = ({ cartDetails, setCartDetails, handleQuantityChange }) => {
     const [modalProps, setModalProps] = useState({});
 
     const clearCartItems = async () => {
-        const res = await fetch("https://nike-sample.adaptable.app/clearCart", {
+        // const res = await fetch("https://nike-sample.adaptable.app/clearCart", {
+        //     method: "GET",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     credentials: "include",
+        // });
+        // const data = await res.json();
+        const { data, res } = await jsonRequest({
+            path: "/clearCart",
             method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
             credentials: "include",
         });
-        const data = await res.json();
         if (res.status === 200) {
             setCartDetails((prev) => {
                 return { ...prev, items: [] };
