@@ -1,28 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-.mission{
-    height: 100vh;
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+.mission {
+    min-height: 100vh;
+    height: fit-content;
     position: relative;
 }
-.mission h2{
+.mission h2 {
     color: black;
     font-size: 2em;
     margin-top: 200px;
     margin-left: 300px;
 }
-.mission h1{
+.mission h1 {
     color: black;
-    font-family: 'Anton', sans-serif;
-    font-size: 7em;
+    font-family: "Anton", sans-serif;
+    font-size: min(2.5rem + 7vw, 7rem);
     line-height: 1;
     margin-left: 300px;
 }
-.mission h3{
+.mission h3 {
     display: inline-block;
     font-size: 1.5em;
     color: black;
     position: absolute;
     right: 20px;
 }
-.mission .grey{
+.mission .grey {
     color: grey;
+}
+
+@media (max-width: 850px) {
+    .mission h2 {
+        margin-top: 50px;
+        margin-left: 100px;
+    }
+    .mission h1 {
+        margin-left: 100px;
+    }
+}
+@media (max-width: 520px) {
+    .mission h2 {
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+    .mission h1 {
+        margin-left: 50px;
+    }
 }
